@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://k0deccgfd1mm"]
+[gd_scene load_steps=4 format=3 uid="uid://k0deccgfd1mm"]
+
+[ext_resource type="Script" uid="uid://b7kymmcvpk570" path="res://Scripts/main_menu.gd" id="1_tt5f1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bnhvo"]
 
@@ -17,6 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_tt5f1")
 
 [node name="MainMenu_Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -76,3 +79,8 @@ text = "Settings"
 layout_mode = 2
 size_flags_vertical = 3
 text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/Start_Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Controls_Button" to="." method="_on_controls_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings_Button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit_Button" to="." method="_on_exit_button_pressed"]
