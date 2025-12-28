@@ -1,7 +1,82 @@
-[gd_scene format=3 uid="uid://b4mt5ivycteyy"]
+[gd_scene load_steps=11 format=3 uid="uid://b4mt5ivycteyy"]
+
+[ext_resource type="Texture2D" uid="uid://14jgtc2a5yuh" path="res://Assets/Sprites/player-Sheet.png" id="1_hygh2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1l7ou"]
+atlas = ExtResource("1_hygh2")
+region = Rect2(0, 0, 29, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h04xk"]
+atlas = ExtResource("1_hygh2")
+region = Rect2(29, 0, 29, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nvxx"]
+atlas = ExtResource("1_hygh2")
+region = Rect2(58, 0, 29, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0sv7"]
+atlas = ExtResource("1_hygh2")
+region = Rect2(87, 0, 29, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vn312"]
+atlas = ExtResource("1_hygh2")
+region = Rect2(0, 32, 29, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_geofc"]
+atlas = ExtResource("1_hygh2")
+region = Rect2(29, 32, 29, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2b5nh"]
+atlas = ExtResource("1_hygh2")
+region = Rect2(58, 32, 29, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s17cb"]
+atlas = ExtResource("1_hygh2")
+region = Rect2(87, 32, 29, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_owaji"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1l7ou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h04xk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nvxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0sv7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vn312")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_geofc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2b5nh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s17cb")
+}],
+"loop": true,
+"name": &"move",
+"speed": 14.0
+}]
 
 [node name="SilentKnight_CharacterBody2D" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, -15)
+sprite_frames = SubResource("SpriteFrames_owaji")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
