@@ -78,6 +78,6 @@ position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_owaji")
 animation = &"idle_animation"
 autoplay = "idle_animation"
-frame_progress = 0.26369858
+frame_progress = 0.7182423
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
