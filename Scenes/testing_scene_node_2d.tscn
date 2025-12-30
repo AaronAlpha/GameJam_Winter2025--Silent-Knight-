@@ -27,9 +27,17 @@ sources/1 = SubResource("TileSetAtlasSource_75woj")
 
 [node name="SilentKnight_CharacterBody2D" parent="." instance=ExtResource("1_p4mjc")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="SilentKnight_CharacterBody2D"]
 position = Vector2(0, -11)
 zoom = Vector2(4, 4)
+
+[node name="JumpAnimationStart_Timer" type="Timer" parent="SilentKnight_CharacterBody2D"]
+wait_time = 0.1
+one_shot = true
+
+[node name="JumpDelay_Timer" type="Timer" parent="SilentKnight_CharacterBody2D"]
+wait_time = 2.0
+one_shot = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD+/wAAAQAFAAAAAAD//wAAAQAFAAAAAAAAAAAAAQAFAAAAAAABAAAAAQAFAAAAAAACAAAAAQAFAAAAAAADAAAAAQAGAAAAAAAEAAAAAQAGAAAAAAAFAAAAAQAGAAAAAAAGAAAAAQAGAAAAAAAHAAAAAQAGAAAAAAAIAAAAAQAGAAAAAAD9/wAAAQAGAAAAAAD8/wAAAQAGAAAAAAD7/wAAAQAGAAAAAAD6/wAAAQAGAAAAAAD5/wAAAQAGAAAAAAD4/wAAAQAGAAAAAAD3/wAAAQAEAAAAAAAJAAAAAQAIAAAAAAD3////AQAMAAAAAAD3//7/AQAMAAAAAAD3//3/AQAMAAAAAAD3//z/AQAMAAAAAAD3//v/AQAMAAAAAAAJAPz/AQAMAAAAAAAJAPv/AQAMAAAAAAAJAP3/AQAMAAAAAAD4//r/AQAKAAAAAAD5//r/AQAKAAAAAAD6//r/AQAKAAAAAAD7//r/AQAKAAAAAAD8//r/AQAKAAAAAAD9//r/AQAKAAAAAAD+//r/AQAKAAAAAAD///r/AQAKAAAAAAAAAPr/AQAKAAAAAAAEAPr/AQAKAAAAAAAFAPr/AQAKAAAAAAAGAPr/AQAKAAAAAAAHAPr/AQAKAAAAAAAIAPr/AQAKAAAAAAAJAPr/AQALAAAAAAD3//r/AQAJAAAAAAD9////AQACAAAAAAD4////AQACAAAAAAAGAP//AQADAAAAAAAEAP//AQADAAAAAAA=")
@@ -39,3 +47,6 @@ tile_set = SubResource("TileSet_p4mjc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_igi7e")
+
+[connection signal="timeout" from="SilentKnight_CharacterBody2D/JumpAnimationStart_Timer" to="SilentKnight_CharacterBody2D" method="_on_jump_animation_start_timer_timeout"]
+[connection signal="timeout" from="SilentKnight_CharacterBody2D/JumpDelay_Timer" to="SilentKnight_CharacterBody2D" method="_on_jump_delay_timer_timeout"]
