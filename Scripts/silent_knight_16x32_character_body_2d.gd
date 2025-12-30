@@ -20,21 +20,25 @@ func _physics_process(delta: float) -> void:
 	
 	if direction > 0:
 		$AnimatedSprite2D.flip_h = false
+		playerAttack(delta)
 	elif direction < 0:
 		$AnimatedSprite2D.flip_h = true
+		playerAttack(delta)
 	
 	# play animations
 	# characterBody2D has a built-in function to check if character is on the 'floor': is_on_floor()
 	if is_on_floor():
 		if direction == 0:
 			$AnimatedSprite2D.play("idle_animation")
+			playerAttack(delta)
 		elif direction != 0:
 			$AnimatedSprite2D.play("move_animation")
+			playerAttack(delta)
 	elif not is_on_floor():
-		$AnimatedSprite2D.play("jump_animation")
-		
-	if Input.is_action_pressed("ui_up"):
 		$AnimatedSprite2D.play("fall_animation")
+		
+	if Input.is_action_just_pressed("ui_up"):
+		$AnimatedSprite2D.play("jump_animation")
 	
 	
 	if direction:
@@ -43,7 +47,15 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
 
+func playerAttack(delta:float):
+	
+	if Input.is_action_just_pressed("e") or Input.is_action_just_pressed("E"):
+		$AnimatedSprite2D.play("slash_animation")
+	
+	elif Input.is_action_just_pressed("q") or Input.is_action_just_pressed("Q"):
+		$AnimatedSprite2D.play("stab_animation")
 
 
 
