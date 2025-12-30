@@ -129,13 +129,12 @@ animations = [{
 radius = 4.0
 height = 18.0
 
-[node name="SilentKnight_44x32_CharacterBody2D" type="CharacterBody2D"]
+[node name="SilentKnight_32x32_CharacterBody2D" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_d23x5")
 animation = &"slash_animation"
-frame_progress = 0.31363046
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -11)
