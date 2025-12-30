@@ -35,6 +35,7 @@ sources/1 = SubResource("TileSetAtlasSource_75woj")
 [node name="TestingScene_Node2D" type="Node2D"]
 
 [node name="SilentKnight_CharacterBody2D" parent="." instance=ExtResource("1_p4mjc")]
+position = Vector2(-53, -97)
 
 [node name="Camera2D" type="Camera2D" parent="SilentKnight_CharacterBody2D"]
 position = Vector2(0, -11)
