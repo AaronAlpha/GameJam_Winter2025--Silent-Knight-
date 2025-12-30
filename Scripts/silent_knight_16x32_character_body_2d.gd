@@ -4,6 +4,8 @@ extends CharacterBody2D
 const SPEED = 100.0
 const JUMP_VELOCITY = -300.0
 
+func _ready() -> void:
+	$AnimatedSprite2D.play("idle_animation")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -12,6 +14,7 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
+		#$AnimatedSprite2D.play("jmup_animation")
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -28,16 +31,18 @@ func _physics_process(delta: float) -> void:
 	# play animations
 	# characterBody2D has a built-in function to check if character is on the 'floor': is_on_floor()
 	if is_on_floor():
-		if direction == 0 and not( Input.is_action_just_pressed("Slash") or Input.is_action_just_pressed("Stab") ):
+		if direction == 0:
 			$AnimatedSprite2D.play("idle_animation")
-		elif direction != 0 and not( Input.is_action_just_pressed("Slash") or Input.is_action_just_pressed("Stab") ):
+		elif direction != 0:
 			$AnimatedSprite2D.play("move_animation")
-			
 	elif not is_on_floor():
+		$AnimatedSprite2D.play("fall_animation")
+	
+		
+		
+	elif Input.is_action_just_pressed("ui_up"):
 		$AnimatedSprite2D.play("jump_animation")
 		
-	if Input.is_action_just_pressed("ui_up"):
-		$AnimatedSprite2D.play("fall_animation")
 	
 	
 	if direction:
