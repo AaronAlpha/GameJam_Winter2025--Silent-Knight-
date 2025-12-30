@@ -37,10 +37,9 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite2D.play("move_animation")
 	elif not is_on_floor():
 		$AnimatedSprite2D.play("fall_animation")
-	
-		
-		
-	elif Input.is_action_just_pressed("ui_up"):
+
+	if Input.is_action_just_pressed("ui_up") and is_on_floor():
+		$AnimatedSprite2D.stop()
 		$AnimatedSprite2D.play("jump_animation")
 		
 	
