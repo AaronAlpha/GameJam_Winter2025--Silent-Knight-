@@ -23,7 +23,18 @@ func _physics_process(delta: float) -> void:
 	elif direction < 0:
 		$AnimatedSprite2D.flip_h = true
 	
-	
+	# play animations
+	# characterBody2D has a built-in function to check if character is on the 'floor': is_on_floor()
+	if is_on_floor():
+		if direction == 0:
+			$AnimatedSprite2D.play("idle_animation")
+		elif direction != 0:
+			$AnimatedSprite2D.play("move_animation")
+	elif not is_on_floor():
+		$AnimatedSprite2D.play("jump_animation")
+		
+	if Input.is_action_pressed("ui_up"):
+		$AnimatedSprite2D.play("fall_animation")
 	
 	
 	if direction:
