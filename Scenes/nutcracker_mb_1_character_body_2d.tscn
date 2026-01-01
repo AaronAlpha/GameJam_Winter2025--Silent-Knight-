@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://uxvvaxuqpe3a"]
+[gd_scene load_steps=30 format=3 uid="uid://uxvvaxuqpe3a"]
 
 [ext_resource type="Texture2D" uid="uid://oxh7mpjfreyj" path="res://Assets/Sprites/New Version/nutcracker-Sheet.png" id="1_ladjm"]
 [ext_resource type="PackedScene" uid="uid://cgkhpp02r34fi" path="res://Scenes/state_machine_node.tscn" id="2_lfcwl"]
@@ -65,6 +65,14 @@ region = Rect2(48, 192, 48, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_6fq4f"]
 atlas = ExtResource("1_ladjm")
 region = Rect2(96, 192, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n43yn"]
+atlas = ExtResource("1_ladjm")
+region = Rect2(48, 192, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmekf"]
+atlas = ExtResource("1_ladjm")
+region = Rect2(0, 192, 48, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_it4yb"]
 atlas = ExtResource("1_ladjm")
@@ -143,6 +151,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6fq4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n43yn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmekf")
 }],
 "loop": true,
 "name": &"slash_animation",
@@ -175,16 +189,16 @@ size = Vector2(10, 38)
 [node name="Nutcracker_MB1_CharacterBody2D" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -33)
+position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_bttcb")
 animation = &"stab_animation"
 autoplay = "move_animation"
-frame = 3
-frame_progress = 0.8491335
+frame = 2
+frame_progress = 0.90750587
 
 [node name="LeftFacing_CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
-position = Vector2(13, -23)
+position = Vector2(13, -22)
 shape = SubResource("RectangleShape2D_ladjm")
 
 [node name="RightFacing_CollisionShape2D" type="CollisionShape2D" parent="."]
