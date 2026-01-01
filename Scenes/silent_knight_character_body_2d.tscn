@@ -1,6 +1,6 @@
 [gd_scene load_steps=52 format=3 uid="uid://b4mt5ivycteyy"]
 
-[ext_resource type="Script" uid="uid://dkryjeytrtr41" path="res://Scripts/silent_knight_16x32_character_body_2d.gd" id="1_1l7ou"]
+[ext_resource type="Script" uid="uid://dkryjeytrtr41" path="res://Scripts/silent_knight_character_body_2d.gd" id="1_1l7ou"]
 [ext_resource type="Texture2D" uid="uid://dp5o5e12w0uxa" path="res://Assets/Sprites/New Version/player-Sheet.png" id="2_h04xk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1l7ou"]

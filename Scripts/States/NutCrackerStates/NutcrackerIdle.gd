@@ -1,6 +1,8 @@
 extends State
 
 class_name NutcrackerIdle
+@onready var right_facing_collision_shape_2d: CollisionShape2D = $"../../RightFacing_CollisionShape2D"
+
 
 
 @export var enemy : CharacterBody2D
@@ -15,11 +17,26 @@ var wander_time : float
 
 func random_wander():
 	move_dir = Vector2(  randf_range(-1, 1) , 0 ) # ensuring that enemy does not idle_move in the y-axis
+	
+	if move_dir[0] > 0: # chceking the sign of the x values
+		# if dir is +ve -> i.e. facing right
+		$"../../AnimatedSprite2D".flip_h = true
+		$"../../LeftFacing_CollisionShape2D".visible = false
+		$"../../RightFacing_CollisionShape2D".visible = true
+	else:
+		# if dir is -ve -> i.e. facing left
+		$"../../AnimatedSprite2D".flip_h = false
+		$"../../LeftFacing_CollisionShape2D".visible = true
+		$"../../RightFacing_CollisionShape2D".visible = false
+	
 	wander_time = randf_range(1, 2)
 
 
 # and then when we Enter() this state (EnemyIdle state), we call the randomizer func
 func Enter():
+	$"../../AnimatedSprite2D".play("move_animation")
+	
+	
 	player = get_tree().get_first_node_in_group("Player")
 	
 	random_wander()
@@ -37,7 +54,7 @@ func Update(delta : float):
 
 
 func PhysicsUpdate(delta : float):
-	# check if enemy exists:
+	# check if enemy node exists:
 	if enemy:
 		# if it does exist: set velocity...
 		enemy.velocity = move_dir * idle_move_speed
