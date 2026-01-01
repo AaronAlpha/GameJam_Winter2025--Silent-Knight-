@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://uxvvaxuqpe3a"]
+[gd_scene load_steps=17 format=3 uid="uid://uxvvaxuqpe3a"]
 
 [ext_resource type="Texture2D" uid="uid://oxh7mpjfreyj" path="res://Assets/Sprites/New Version/nutcracker-Sheet.png" id="1_ladjm"]
+[ext_resource type="PackedScene" uid="uid://cgkhpp02r34fi" path="res://Scenes/state_machine_node.tscn" id="2_lfcwl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lfcwl"]
 atlas = ExtResource("1_ladjm")
@@ -104,6 +105,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ladjm"]
+size = Vector2(10, 38)
+
 [node name="Nutcracker_MB1_CharacterBody2D" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -113,5 +117,14 @@ animation = &"move_animation"
 autoplay = "move_animation"
 
 [node name="LeftFacing_CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(13, -23)
+shape = SubResource("RectangleShape2D_ladjm")
 
 [node name="RightFacing_CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(-13, -23)
+shape = SubResource("RectangleShape2D_ladjm")
+
+[node name="StateMachine_Node" parent="." instance=ExtResource("2_lfcwl")]

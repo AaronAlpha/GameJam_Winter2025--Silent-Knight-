@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://5ad6yk7kcvqy"]
 
-[ext_resource type="PackedScene" uid="uid://b4mt5ivycteyy" path="res://Scenes/silent_knight_16x32_character_body_2d.tscn" id="1_p4mjc"]
+[ext_resource type="PackedScene" uid="uid://b4mt5ivycteyy" path="res://Scenes/silent_knight_character_body_2d.tscn" id="1_p4mjc"]
 [ext_resource type="Texture2D" uid="uid://dn18i2rppm32y" path="res://Assets/Sprites/Home_Tileset-Sheet.png" id="3_2vh3t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_75woj"]
