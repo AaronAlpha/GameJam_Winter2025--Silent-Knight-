@@ -1,73 +1,67 @@
-[gd_scene load_steps=38 format=3 uid="uid://b4mt5ivycteyy"]
+[gd_scene load_steps=44 format=3 uid="uid://b4mt5ivycteyy"]
 
 [ext_resource type="Script" uid="uid://dkryjeytrtr41" path="res://Scripts/silent_knight_character_body_2d.gd" id="1_1l7ou"]
 [ext_resource type="Texture2D" uid="uid://dp5o5e12w0uxa" path="res://Assets/Sprites/New Version/player-Sheet.png" id="2_h04xk"]
+[ext_resource type="PackedScene" uid="uid://cgkhpp02r34fi" path="res://Scenes/state_machine_node.tscn" id="3_h04xk"]
+[ext_resource type="Script" uid="uid://bptwmupi8krts" path="res://Scripts/States/SilentKnightStates/SilentKnightIdle.gd" id="4_y0sv7"]
+[ext_resource type="Script" uid="uid://ciilhcbyj34eo" path="res://Scripts/States/SilentKnightStates/SilentKnightMove.gd" id="5_vn312"]
+[ext_resource type="Script" uid="uid://d4cll4kq7idfu" path="res://Scripts/States/SilentKnightStates/SilentKnightJump.gd" id="6_sd0cb"]
+[ext_resource type="Script" uid="uid://bigwm3ooumm0e" path="res://Scripts/States/SilentKnightStates/SilentKnightCrouch.gd" id="7_dfhla"]
+[ext_resource type="Script" uid="uid://ej5h1bevix20" path="res://Scripts/States/SilentKnightStates/SilentKnightFall.gd" id="8_lm8ks"]
+[ext_resource type="Script" uid="uid://b245u55ca42ky" path="res://Scripts/States/SilentKnightStates/SilentKnightSlash.gd" id="9_hopt6"]
+[ext_resource type="Script" uid="uid://ditivl7qn6rmg" path="res://Scripts/States/SilentKnightStates/SilentKnightStab.gd" id="10_4b54u"]
+[ext_resource type="Script" uid="uid://ctjnxttilp5vj" path="res://Scripts/States/SilentKnightStates/SilentKnightDamage.gd" id="11_uwcpc"]
+[ext_resource type="Script" uid="uid://c27276hnycm22" path="res://Scripts/States/SilentKnightStates/SilentKnightDeath.gd" id="12_jabk5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1l7ou"]
 atlas = ExtResource("2_h04xk")
-region = Rect2(0, 128, 16, 32)
+region = Rect2(0, 128, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h04xk"]
 atlas = ExtResource("2_h04xk")
-region = Rect2(32, 128, 16, 32)
+region = Rect2(32, 128, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3nvxx"]
 atlas = ExtResource("2_h04xk")
-region = Rect2(64, 128, 16, 32)
+region = Rect2(64, 128, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y0sv7"]
 atlas = ExtResource("2_h04xk")
-region = Rect2(96, 128, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cy5yp"]
-atlas = ExtResource("2_h04xk")
-region = Rect2(0, 128, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7ke2h"]
-atlas = ExtResource("2_h04xk")
-region = Rect2(32, 128, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h3xtg"]
-atlas = ExtResource("2_h04xk")
-region = Rect2(64, 128, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dxjsy"]
-atlas = ExtResource("2_h04xk")
 region = Rect2(96, 128, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_stkkl"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_403sl"]
 atlas = ExtResource("2_h04xk")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xrjlc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_sd0cb"]
 atlas = ExtResource("2_h04xk")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5c8o1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfhla"]
 atlas = ExtResource("2_h04xk")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rdpoj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lm8ks"]
 atlas = ExtResource("2_h04xk")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t0244"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hopt6"]
 atlas = ExtResource("2_h04xk")
 region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vmbyu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_rr86q"]
 atlas = ExtResource("2_h04xk")
 region = Rect2(160, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uv8ag"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lfy5"]
 atlas = ExtResource("2_h04xk")
 region = Rect2(192, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7kvya"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fhg1"]
 atlas = ExtResource("2_h04xk")
 region = Rect2(224, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xigbf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1854q"]
 atlas = ExtResource("2_h04xk")
 region = Rect2(256, 0, 32, 32)
 
@@ -156,48 +150,31 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cy5yp")
+"texture": SubResource("AtlasTexture_403sl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7ke2h")
+"texture": SubResource("AtlasTexture_sd0cb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_h3xtg")
+"texture": SubResource("AtlasTexture_dfhla")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dxjsy")
-}],
-"loop": true,
-"name": &"damage_animation_2",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_stkkl")
+"texture": SubResource("AtlasTexture_lm8ks")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xrjlc")
+"texture": SubResource("AtlasTexture_hopt6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5c8o1")
+"texture": SubResource("AtlasTexture_rr86q")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rdpoj")
+"texture": SubResource("AtlasTexture_1lfy5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_t0244")
+"texture": SubResource("AtlasTexture_4fhg1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vmbyu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uv8ag")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7kvya")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xigbf")
+"texture": SubResource("AtlasTexture_1854q")
 }],
 "loop": true,
 "name": &"death_animation",
@@ -295,6 +272,61 @@ sprite_frames = SubResource("SpriteFrames_owaji")
 animation = &"damage_animation"
 autoplay = "idle_animation"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -10)
+[node name="LeftFacing_CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7, -10)
 shape = SubResource("CapsuleShape2D_hygh2")
+debug_color = Color(0.96727043, 7.70092e-07, 0.47832793, 0.41960785)
+
+[node name="RightFacing_CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(7, -10)
+shape = SubResource("CapsuleShape2D_hygh2")
+debug_color = Color(0.22461551, 0.509979, 1, 0.41960785)
+
+[node name="StateMachine_Node" parent="." node_paths=PackedStringArray("initial_state") instance=ExtResource("3_h04xk")]
+initial_state = NodePath("SilentKnightIdle")
+
+[node name="SilentKnightIdle" type="Node" parent="StateMachine_Node" node_paths=PackedStringArray("player")]
+script = ExtResource("4_y0sv7")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://bptwmupi8krts"
+
+[node name="SilentKnightMove" type="Node" parent="StateMachine_Node" node_paths=PackedStringArray("player")]
+script = ExtResource("5_vn312")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://ciilhcbyj34eo"
+
+[node name="SilentKnightJump" type="Node" parent="StateMachine_Node" node_paths=PackedStringArray("player")]
+script = ExtResource("6_sd0cb")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://d4cll4kq7idfu"
+
+[node name="SilentKnightCrouch" type="Node" parent="StateMachine_Node" node_paths=PackedStringArray("player")]
+script = ExtResource("7_dfhla")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://bigwm3ooumm0e"
+
+[node name="SilentKnightFall" type="Node" parent="StateMachine_Node" node_paths=PackedStringArray("player")]
+script = ExtResource("8_lm8ks")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://ej5h1bevix20"
+
+[node name="SilentKnightSlash" type="Node" parent="StateMachine_Node" node_paths=PackedStringArray("player")]
+script = ExtResource("9_hopt6")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://b245u55ca42ky"
+
+[node name="SilentKnightStab" type="Node" parent="StateMachine_Node" node_paths=PackedStringArray("player")]
+script = ExtResource("10_4b54u")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://ditivl7qn6rmg"
+
+[node name="SilentKnightDamage" type="Node" parent="StateMachine_Node" node_paths=PackedStringArray("player")]
+script = ExtResource("11_uwcpc")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://ctjnxttilp5vj"
+
+[node name="SilentKnightDeath" type="Node" parent="StateMachine_Node" node_paths=PackedStringArray("player")]
+script = ExtResource("12_jabk5")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://c27276hnycm22"

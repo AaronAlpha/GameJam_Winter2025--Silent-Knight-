@@ -17,7 +17,7 @@ func Enter():
 func PhysicsUpdate(_delta : float):
 	# getting direction between player and enemy
 	var direction = player.global_position - enemy.global_position
-	direction[1] = 0 # ensuring that the enemy does not move in the y-axis
+	direction.y = 0 # ensuring that the enemy does not move in the y-axis
 	
 	# and if the direction is outside some distance
 	if direction.length() > 5: # distance between enemy and player when enemy is near player

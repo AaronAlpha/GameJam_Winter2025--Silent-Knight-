@@ -1,8 +1,6 @@
 extends State
 
 class_name NutcrackerIdle
-@onready var right_facing_collision_shape_2d: CollisionShape2D = $"../../RightFacing_CollisionShape2D"
-
 
 
 @export var enemy : CharacterBody2D
