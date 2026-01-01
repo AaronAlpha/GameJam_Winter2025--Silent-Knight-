@@ -1,0 +1,117 @@
+[gd_scene load_steps=15 format=3 uid="uid://uxvvaxuqpe3a"]
+
+[ext_resource type="Texture2D" uid="uid://oxh7mpjfreyj" path="res://Assets/Sprites/New Version/nutcracker-Sheet.png" id="1_ladjm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfcwl"]
+atlas = ExtResource("1_ladjm")
+region = Rect2(0, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btw76"]
+atlas = ExtResource("1_ladjm")
+region = Rect2(48, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdnda"]
+atlas = ExtResource("1_ladjm")
+region = Rect2(96, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wflb2"]
+atlas = ExtResource("1_ladjm")
+region = Rect2(144, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l82r8"]
+atlas = ExtResource("1_ladjm")
+region = Rect2(0, 128, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bn257"]
+atlas = ExtResource("1_ladjm")
+region = Rect2(48, 128, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odxb8"]
+atlas = ExtResource("1_ladjm")
+region = Rect2(96, 128, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1lp8"]
+atlas = ExtResource("1_ladjm")
+region = Rect2(0, 64, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wiubk"]
+atlas = ExtResource("1_ladjm")
+region = Rect2(48, 64, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c87th"]
+atlas = ExtResource("1_ladjm")
+region = Rect2(96, 64, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4sdgw"]
+atlas = ExtResource("1_ladjm")
+region = Rect2(144, 64, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fls11"]
+atlas = ExtResource("1_ladjm")
+region = Rect2(192, 64, 48, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bttcb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfcwl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btw76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdnda")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wflb2")
+}],
+"loop": true,
+"name": &"move_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l82r8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bn257")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odxb8")
+}],
+"loop": true,
+"name": &"slash_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1lp8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wiubk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c87th")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4sdgw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fls11")
+}],
+"loop": true,
+"name": &"stab_animation",
+"speed": 5.0
+}]
+
+[node name="Nutcracker_MB1_CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -33)
+sprite_frames = SubResource("SpriteFrames_bttcb")
+animation = &"move_animation"
+autoplay = "move_animation"
+
+[node name="LeftFacing_CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="RightFacing_CollisionShape2D" type="CollisionShape2D" parent="."]
