@@ -55,7 +55,7 @@ text = "Sorry you lost! ahaha... sry
 Art and Music/SFX are amazing. sorry for poor programming.
 First time coding a 2D rpg; new to the errors and logic and didn't know had to learn FSM and other - just excuses, sorry."
 
-[node name="Button" type="Button" parent="."]
+[node name="mainamenuEditButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 38.0
 offset_top = 446.0
@@ -63,4 +63,4 @@ offset_right = 444.0
 offset_bottom = 500.0
 text = "Main Menu"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="mainamenuEditButton" to="." method="_on_mainamenu_edit_button_pressed"]

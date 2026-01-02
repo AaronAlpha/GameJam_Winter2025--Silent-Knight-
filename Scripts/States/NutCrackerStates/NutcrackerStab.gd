@@ -54,7 +54,7 @@ func PhysicsUpdate(delta):
 		
 		print(GameManagerSingleton.playerHealth)
 		
-		if GameManagerSingleton.playerHealth == 0:
+		if GameManagerSingleton.playerHealth <= 0:
 			get_tree().change_scene_to_file("res://Scenes/credits_control.tscn")
 
 

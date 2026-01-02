@@ -11,8 +11,9 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_button_pressed() -> void:
-	GameManagerSingleton.main_menu_panel.visible = false
-	GameManagerSingleton.main_menu_panel_ending.visible = true
-	get_tree().change_scene_to_file("res://Scenes/MainMenuEdited_Control.tscn")
+
 	
+
+
+func _on_mainamenu_edit_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/Levels Scenes/main_menu_edited_control.tscn")

@@ -13,7 +13,7 @@ func Enter():
 	nutC_follow = true
 	$"../../AnimatedSprite2D".play("chase_animation")
 	
-	if GameManagerSingleton.playerHealth == 0:
+	if GameManagerSingleton.playerHealth <= 0:
 		GameManagerSingleton.playerHealth = 300 # so that it runs again and hits the if statement in the 
 		# attack state to 
 	else:

@@ -78,15 +78,16 @@ position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_0bskw")
 animation = &"idle_animation"
 autoplay = "idle_animation"
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7, -10)
+position = Vector2(-9, -10)
 shape = SubResource("RectangleShape2D_8i0qr")
 
 [node name="HitBoxArea2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxArea2D"]
-position = Vector2(7, -10)
+position = Vector2(-9, -10)
 shape = SubResource("RectangleShape2D_r6dyf")
 
 [connection signal="body_entered" from="HitBoxArea2D" to="." method="_on_hit_box_area_2d_body_entered"]

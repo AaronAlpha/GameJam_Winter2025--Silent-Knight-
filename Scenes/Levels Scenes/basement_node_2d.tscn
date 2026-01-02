@@ -175,7 +175,7 @@ text = "Extra Speed"
 position = Vector2(204, -15)
 
 [node name="Turrent_CharacterBody2D" parent="." instance=ExtResource("12_glcnc")]
-position = Vector2(219, -111)
+position = Vector2(40, -128)
 
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
 [connection signal="body_entered" from="ChangeScene_Area2D" to="." method="_on_change_scene_area_2d_body_entered"]
