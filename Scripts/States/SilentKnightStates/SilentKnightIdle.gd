@@ -5,37 +5,44 @@ class_name SilentKnightIdle
 
 # and then when we Enter() this state (EnemyIdle state), we call the randomizer func
 func Enter():
+	#check_death()
+	print("idle")
 	$"../../AnimatedSprite2D".play("idle_animation")
 
 
 func Update(delta : float):
+	#check_death()
 	pass
 
 
 func PhysicsUpdate(delta : float):
-	var direction := Input.get_axis("ui_left", "ui_right")
 	
 	# check if player node exists:
 	if player:
 		# if it does exist: check keyPress and change state
 		if direction > 0 or Input.is_action_pressed("move_right"): # moving right
 			$"../../AnimatedSprite2D".flip_h = false
+			Transitioned.emit(self, "SilentKnightMove")
 			
-			 
 		elif direction < 0 or Input.is_action_pressed("move_left"): # moving left
 			$"../../AnimatedSprite2D".flip_h = true
-			
+			Transitioned.emit(self, "SilentKnightMove")
+		
+		elif Input.is_action_just_pressed("jump") and player.is_on_floor():
+			Transitioned.emit(self, "SilentKnightJump")
+		
+		elif Input.is_action_pressed("crouch") and player.is_on_floor():
+			Transitioned.emit(self, "SilentKnightCrouch")
+		
+		elif !player.is_on_floor():
+			Transitioned.emit(self, "SilentKnightFall")
+		
+		else:
+			Transitioned.emit(self, "SilentKnightIdle")
 				
 
-	attackStates()
+	if Input.is_action_just_pressed("Slash"):
+		Transitioned.emit(self, "SilentKnightSlash")
+	elif Input.is_action_just_pressed("Stab"):
+		Transitioned.emit(self, "SilentKnightStab")
 	
-	
-	
-	
-	
-	
-	
-	# if distance (direction) is within some threshold, we transition from Idle to Follow
-	#if direction.length() < 100:
-		#Transitioned.emit(self, "NutcrackerFollow")
-		

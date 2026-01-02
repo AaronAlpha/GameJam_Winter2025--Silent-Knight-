@@ -4,18 +4,36 @@ class_name SilentKnightStab
 
 
 func Enter():
+	check_death()
 	attackAnimations("stab_animation")
 
 func Update(delta : float):
+	#check_death()
 	pass
 
 func PhysicsUpdate(delta : float):
 	# checking if player exists
 	if player:
 		pass
-	else: # player does not exist
+	
 		
+	if Input.is_action_just_pressed("Slash"):
+		Transitioned.emit(self, "SilentKnightSlash")
+	elif Input.is_action_just_pressed("Stab"):
+		Transitioned.emit(self, "SilentKnightStab")
+	
+	if ((direction > 0 or Input.is_action_pressed("move_right")) or (direction < 0 or Input.is_action_pressed("move_left"))) and player.is_on_floor():
+		print("2")
+		Transitioned.emit(self, "SilentKnightMove")
+	
+	elif Input.is_action_just_pressed("jump") and player.is_on_floor():
+		print("3")
+		Transitioned.emit(self, "SilentKnightJump")
+	
+	elif Input.is_action_pressed("crouch") and player.is_on_floor():
+		print("4")
+		Transitioned.emit(self, "SilentKnightCrouch")
 		
-		
-	attackStates()
-	moveStates()
+	else:
+		print("5")
+		Transitioned.emit(self, "SilentKnightFall")

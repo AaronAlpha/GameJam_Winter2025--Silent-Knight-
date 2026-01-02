@@ -13,4 +13,6 @@ func Update(delta : float):
 	get_tree().change_scene_to_file("res://Scenes/UI Scenes/MainMenu_Control.tscn")
 
 func PhysicsUpdate(delta : float):
-	pass
+	# changing the visiblity of the player - signaling its death
+	if player.visible:
+		player.visible = false

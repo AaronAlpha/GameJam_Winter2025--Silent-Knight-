@@ -40,26 +40,15 @@ func movement(delta):
 	else:
 		player.velocity.x = move_toward(player.velocity.x, 0, move_speed)
 
-func moveStates():
-	if player.velocity == Vector2.ZERO or Input.is_action_just_pressed("interact_with_obj"): 
+
+
+func idleORfallState():
+	if ( player.velocity == Vector2.ZERO or Input.is_action_just_pressed("interact_with_obj") ) and player.is_on_floor(): 
+		print("1")
 		Transitioned.emit(self, "SilentKnightIdle")
-	
-	elif Input.is_action_just_pressed("jump") and player.is_on_floor():
-		Transitioned.emit(self, "SilentKnightJump")
-	
-	elif Input.is_action_pressed("crouch") and player.is_on_floor():
-		Transitioned.emit(self, "SilentKnightCrouch")
-	
 	else:
+		print("5")
 		Transitioned.emit(self, "SilentKnightFall")
-
-
-func attackStates():
-	# attack change states
-	if Input.is_action_just_pressed("Slash"):
-		Transitioned.emit(self, "SilentKnightSlash")
-	elif Input.is_action_just_pressed("Stab"):
-		Transitioned.emit(self, "SilentKnightStab")
 
 
 # for the death/slash/stab acnimations
@@ -81,6 +70,10 @@ func attackAnimations(animation_name):
 	$"../../Crouch_CollisionShape2D".visible = false
 	$"../../Crouch_CollisionShape2D".disabled = true
 
+
+func check_death():
+	if GameManager_Singleton.playerHealth == 0:
+		Transitioned.emit(self, "SilentKnightDeath")
 
 
 # Called when the node enters the scene tree for the first time.

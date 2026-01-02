@@ -1,8 +1,8 @@
 extends CharacterBody2D
-
-
-func _ready() -> void:
-	$AnimatedSprite2D.play("idle_animation")
+#
+#
+#func _ready() -> void:
+	#$AnimatedSprite2D.play("idle_animation")
 
 
 func _physics_process(delta: float) -> void:
@@ -13,7 +13,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-# the following 2 signals are used to check if the animation of the death, slash and stab are done
+# the following 2 signals are used to check if the animation of the death, slash and stab are committed
 
 func _on_l_attack_animated_sprite_2d_2_animation_finished() -> void:
 	pass # Replace with function body.

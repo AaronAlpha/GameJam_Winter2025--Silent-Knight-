@@ -442,9 +442,6 @@ metadata/_custom_type_script = "uid://b245u55ca42ky"
 [node name="SilentKnightStab" type="Node" parent="StateMachine_Node" node_paths=PackedStringArray("player")]
 script = ExtResource("10_4b54u")
 player = NodePath("../..")
-idle_move_speed = null
-move_speed = null
-jumpSpeed = null
 metadata/_custom_type_script = "uid://ditivl7qn6rmg"
 
 [node name="SilentKnightDamage" type="Node" parent="StateMachine_Node" node_paths=PackedStringArray("player")]

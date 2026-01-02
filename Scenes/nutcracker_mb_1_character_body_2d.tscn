@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://uxvvaxuqpe3a"]
+[gd_scene load_steps=33 format=3 uid="uid://uxvvaxuqpe3a"]
 
 [ext_resource type="Script" uid="uid://dagtdivksdvyf" path="res://Scripts/nutcracker_mb_1_character_body_2d.gd" id="1_l82r8"]
 [ext_resource type="Texture2D" uid="uid://oxh7mpjfreyj" path="res://Assets/Sprites/New Version/nutcracker-Sheet.png" id="1_ladjm"]
@@ -207,17 +207,20 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ladjm"]
 size = Vector2(10, 38)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_l82r8"]
+radius = 34.0147
+
 [node name="Nutcracker_MB1_CharacterBody2D" type="CharacterBody2D" groups=["MiniBosses"]]
 script = ExtResource("1_l82r8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_bttcb")
 animation = &"move_animation"
 autoplay = "move_animation"
 
 [node name="Attack_AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_f33ga")
 animation = &"death_animation"
@@ -258,3 +261,12 @@ metadata/_custom_type_script = "uid://sfsomc2o04i8"
 script = ExtResource("5_wflb2")
 enemy = NodePath("../..")
 metadata/_custom_type_script = "uid://sfsomc2o04i8"
+
+[node name="HitBox_Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox_Area2D"]
+position = Vector2(0, -29)
+shape = SubResource("CircleShape2D_l82r8")
+
+[connection signal="body_entered" from="HitBox_Area2D" to="." method="_on_hit_box_area_2d_body_entered"]
+[connection signal="body_exited" from="HitBox_Area2D" to="." method="_on_hit_box_area_2d_body_exited"]
