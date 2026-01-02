@@ -35,9 +35,15 @@ func Update(delta : float):
 	
 func PhysicsUpdate(delta : float):
 	if player:
+		
+
+		if GameManagerSingleton.nutcrackerHealth == 0:
+			get_tree().change_scene_to_file("res://Scenes/final_boss_character_body_2d.tscn")
+		
 		if player_enemy_Distance.x < 15.0:
 			GameManagerSingleton.nutcrackerHealth -= 30
 			print(GameManagerSingleton.nutcrackerHealth)
+			
 		
 	
 	# attack states

@@ -1,23 +1,19 @@
-[gd_scene load_steps=13 format=3 uid="uid://brtncqnd0ik1l"]
+[gd_scene load_steps=11 format=3 uid="uid://d36w83oepakxy"]
 
-[ext_resource type="Script" uid="uid://b7kymmcvpk570" path="res://Scripts/main_menu.gd" id="1_hnkcf"]
-[ext_resource type="Texture2D" uid="uid://bbdmebtknp4b3" path="res://Assets/Sprites/New Version/Silent_Night_MENU.png" id="2_sr3re"]
-[ext_resource type="Texture2D" uid="uid://bi1req5em8mqh" path="res://Assets/Sprites/New Version/UI.png" id="3_nbbsa"]
-[ext_resource type="Texture2D" uid="uid://b27augmjqj2h7" path="res://Assets/Sprites/New Version/Silent_Night_MENU_ending.png" id="3_rspes"]
-[ext_resource type="AudioStream" uid="uid://c7ho7lhef4yp4" path="res://Assets/Audio/SFX/Menu Select.wav" id="5_rspes"]
-[ext_resource type="AudioStream" uid="uid://djuor8xd2rp5f" path="res://Assets/Audio/Music/t431a7.wav" id="6_vepcr"]
+[ext_resource type="Texture2D" uid="uid://b27augmjqj2h7" path="res://Assets/Sprites/New Version/Silent_Night_MENU_ending.png" id="1_18pmy"]
+[ext_resource type="Script" uid="uid://hnfxb2aalvpj" path="res://Scenes/Levels Scenes/main_menu_edited_control.gd" id="1_fo4hj"]
+[ext_resource type="Texture2D" uid="uid://bi1req5em8mqh" path="res://Assets/Sprites/New Version/UI.png" id="2_fo4hj"]
+[ext_resource type="AudioStream" uid="uid://c7ho7lhef4yp4" path="res://Assets/Audio/SFX/Menu Select.wav" id="3_mcdwm"]
+[ext_resource type="AudioStream" uid="uid://djuor8xd2rp5f" path="res://Assets/Audio/Music/t431a7.wav" id="4_1s0qe"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rspes"]
-texture = ExtResource("2_sr3re")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vepcr"]
-texture = ExtResource("3_rspes")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_foays"]
+texture = ExtResource("1_18pmy")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vepcr"]
-atlas = ExtResource("3_nbbsa")
+atlas = ExtResource("2_fo4hj")
 region = Rect2(0, 0, 32, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_6dsht"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_xeeok"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -29,10 +25,10 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sr3re"]
-atlas = ExtResource("3_nbbsa")
+atlas = ExtResource("2_fo4hj")
 region = Rect2(0, 16, 32, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_nbbsa"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_aj068"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -43,33 +39,23 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="MainMenu_Control" type="Control"]
+[node name="MainMenuEdited_Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_hnkcf")
-
-[node name="MainMenu_Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_rspes")
+script = ExtResource("1_fo4hj")
 
 [node name="MainMenu_Panel_Ending" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_vepcr")
+theme_override_styles/panel = SubResource("StyleBoxTexture_foays")
 
 [node name="Title_Node" type="Node" parent="."]
 
@@ -90,12 +76,12 @@ size_flags_vertical = 3
 [node name="Play_AnimatedSprite2D" type="AnimatedSprite2D" parent="VBoxContainer/Play_Button"]
 position = Vector2(174.5, 51.000015)
 scale = Vector2(10.84375, 7.125001)
-sprite_frames = SubResource("SpriteFrames_6dsht")
+sprite_frames = SubResource("SpriteFrames_xeeok")
 animation = &"play_sprite"
 
 [node name="Play_AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="VBoxContainer/Play_Button"]
 position = Vector2(-58, -308)
-stream = ExtResource("5_rspes")
+stream = ExtResource("3_mcdwm")
 volume_db = 4.0
 
 [node name="Exit_Button" type="Button" parent="VBoxContainer"]
@@ -107,7 +93,7 @@ text = "Exit"
 [node name="Exit_AnimatedSprite2D2" type="AnimatedSprite2D" parent="VBoxContainer/Exit_Button"]
 position = Vector2(174.49998, 50.50001)
 scale = Vector2(10.843749, 7.1875014)
-sprite_frames = SubResource("SpriteFrames_nbbsa")
+sprite_frames = SubResource("SpriteFrames_aj068")
 animation = &"quit_sprite"
 
 [node name="Exit_AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="VBoxContainer/Exit_Button"]
@@ -116,7 +102,7 @@ scale = Vector2(0.99999994, 0.99999994)
 volume_db = 4.0
 
 [node name="Background_AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_vepcr")
+stream = ExtResource("4_1s0qe")
 volume_db = 8.978
 autoplay = true
 
@@ -126,10 +112,7 @@ offset_left = 606.0
 offset_top = 6.0
 offset_right = 1149.0
 offset_bottom = 107.0
-text = "sorry, my programming is not of the level of the art and music of my 
-teammates. 
-its very bad; i look to try and showcase their stuff more because of the
-lack of time"
+text = "i hope u liked the play on words and song lyric from 'Silent Night'"
 
-[connection signal="pressed" from="VBoxContainer/Play_Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Play_Button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit_Button" to="." method="_on_exit_button_pressed"]

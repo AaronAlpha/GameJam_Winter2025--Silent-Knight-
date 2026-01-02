@@ -1,14 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://csr4x8rk4vrdw"]
+[gd_scene load_steps=11 format=3 uid="uid://csr4x8rk4vrdw"]
 
 [ext_resource type="Texture2D" uid="uid://cyx7xigdir3mj" path="res://Assets/Sprites/New Version/turret-Sheet.png" id="1_r6dyf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r6dyf"]
 atlas = ExtResource("1_r6dyf")
 region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q27ho"]
-atlas = ExtResource("1_r6dyf")
-region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6la8f"]
 atlas = ExtResource("1_r6dyf")
@@ -46,14 +42,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_q27ho")
-}],
-"loop": true,
-"name": &"new_animation",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_6la8f")
 }, {
 "duration": 1.0,
@@ -83,7 +71,7 @@ animations = [{
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_0bskw")
-animation = &"new_animation"
+animation = &"idle_animation"
 autoplay = "idle_animation"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

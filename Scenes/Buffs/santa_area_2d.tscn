@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://4ccs8cvketfo"]
+[gd_scene load_steps=4 format=3 uid="uid://4ccs8cvketfo"]
 
+[ext_resource type="Script" uid="uid://bhw7eya6y6fml" path="res://Scripts/santa_area_2d.gd" id="1_hbd02"]
 [ext_resource type="Texture2D" uid="uid://cc6a6xj6eav3e" path="res://Assets/Sprites/New Version/items.png" id="1_xwxji"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hbd02"]
 
 [node name="SantaArea2D" type="Area2D"]
 position = Vector2(2, -9)
+collision_layer = 2
+script = ExtResource("1_hbd02")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_xwxji")
@@ -15,3 +18,5 @@ region_rect = Rect2(16, 31, 17, 17)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_hbd02")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

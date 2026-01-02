@@ -13,7 +13,11 @@ func Enter():
 	nutC_follow = true
 	$"../../AnimatedSprite2D".play("chase_animation")
 	
-	player = get_tree().get_first_node_in_group("Player")
+	if GameManagerSingleton.playerHealth == 0:
+		GameManagerSingleton.playerHealth = 300 # so that it runs again and hits the if statement in the 
+		# attack state to 
+	else:
+		player = get_tree().get_first_node_in_group("Player")
 	
 func PhysicsUpdate(_delta : float):
 	# getting direction between player and enemy

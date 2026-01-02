@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6n64fr41in4t"]
+[gd_scene load_steps=4 format=3 uid="uid://c6n64fr41in4t"]
 
 [ext_resource type="Texture2D" uid="uid://cc6a6xj6eav3e" path="res://Assets/Sprites/New Version/items.png" id="1_1chvf"]
+[ext_resource type="Script" uid="uid://dxk8ad7wfgw15" path="res://Scripts/present_area_2d.gd" id="1_bio6y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bio6y"]
 
 [node name="Present_Area2D" type="Area2D"]
 position = Vector2(0, -8)
+script = ExtResource("1_bio6y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_1chvf")
@@ -14,3 +16,5 @@ region_rect = Rect2(32, 32, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_bio6y")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

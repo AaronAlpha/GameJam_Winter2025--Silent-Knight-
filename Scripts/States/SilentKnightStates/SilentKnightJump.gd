@@ -6,11 +6,12 @@ class_name SilentKnightJump
 
 func Enter():
 
+
 	#check_death()
-	$"../../L_AnimatedSprite2D".visible = false
-	$"../../L_AnimatedSprite2D".stop()
-	$"../../R_AnimatedSprite2D".visible = false
-	$"../../R_AnimatedSprite2D".stop()
+	$"../../L_Attack_AnimatedSprite2D".visible = false
+	$"../../L_Attack_AnimatedSprite2D".stop()
+	$"../../R_Attack_AnimatedSprite2D".visible = false
+	$"../../R_Attack_AnimatedSprite2D".stop()
 	
 	$"../../AnimatedSprite2D".visible = true
 	$"../../AnimatedSprite2D".play("jump_animation")

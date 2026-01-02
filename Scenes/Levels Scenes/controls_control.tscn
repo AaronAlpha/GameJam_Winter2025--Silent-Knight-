@@ -1,4 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ceiqky2kpu6o5"]
+[gd_scene load_steps=4 format=3 uid="uid://ceiqky2kpu6o5"]
+
+[ext_resource type="Texture2D" uid="uid://bi1req5em8mqh" path="res://Assets/Sprites/New Version/UI.png" id="1_dga3e"]
+[ext_resource type="Script" uid="uid://d324k4fpb43ad" path="res://Scenes/Levels Scenes/controls_control.gd" id="1_g4vy5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3qpa"]
 bg_color = Color(0.27893087, 0.63394654, 0.8747593, 1)
@@ -10,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_g4vy5")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -23,9 +27,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_c3qpa")
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 29.0
-offset_top = 166.0
+offset_top = 29.0
 offset_right = 1059.0
-offset_bottom = 475.0
+offset_bottom = 494.0
 text = "A/D - Movement Keys; Left and RIght respectively 
 W/S- nothing
 Space - jump
@@ -44,3 +48,20 @@ There are certain 'drops' around the level, these will especially benefit you.
 
 There is a final boss however he is programming-wise broken, but I would like for you to acknowledge my teammate's art 
 "
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 923.0
+offset_top = 529.0
+offset_right = 1110.0
+offset_bottom = 591.0
+text = "Play"
+
+[node name="Sprite2D" type="Sprite2D" parent="Button"]
+position = Vector2(93.999985, 31.499977)
+scale = Vector2(6.3125014, 4.437498)
+texture = ExtResource("1_dga3e")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 16)
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

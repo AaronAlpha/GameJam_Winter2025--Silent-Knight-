@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://2bi4ghrbgb22"]
+[gd_scene load_steps=4 format=3 uid="uid://2bi4ghrbgb22"]
 
 [ext_resource type="Texture2D" uid="uid://cc6a6xj6eav3e" path="res://Assets/Sprites/New Version/items.png" id="1_10ikv"]
+[ext_resource type="Script" uid="uid://o3jq5dh2ee1x" path="res://Scripts/health_area_2d.gd" id="1_dpkwk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dpkwk"]
 
 [node name="Health_Area2D" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_dpkwk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -8)
@@ -15,3 +18,5 @@ region_rect = Rect2(0, 0, 16, 17)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -9)
 shape = SubResource("CircleShape2D_dpkwk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -12,7 +12,4 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	GameManagerSingleton.main_menu_panel.visible = false
-	GameManagerSingleton.main_menu_panel_ending.visible = true
-	get_tree().change_scene_to_file("res://Scenes/MainMenuEdited_Control.tscn")
-	
+	get_tree().change_scene_to_file("res://Scenes/Levels Scenes/starter_room_node_2d.tscn")

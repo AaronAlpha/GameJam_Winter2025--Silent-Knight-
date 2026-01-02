@@ -44,13 +44,13 @@ func PhysicsUpdate(delta : float):
 		
 		if direction > 0 or Input.is_action_pressed("move_right"):
 			# if it does exist: set velocity...
-			player.velocity.x = direction * move_speed
+			player.velocity.x = direction * GameManagerSingleton.playerSpeed
 			# should only be in x-axis
 	
 		
 		elif direction < 0 or Input.is_action_pressed("move_left"):
 			# if it does exist: set velocity...
-			player.velocity.x = direction * move_speed
+			player.velocity.x = direction * GameManagerSingleton.playerSpeed
 			# should only be in x-axis
 
 		else:
