@@ -1,16 +1,45 @@
-[gd_scene load_steps=4 format=3 uid="uid://brtncqnd0ik1l"]
+[gd_scene load_steps=11 format=3 uid="uid://brtncqnd0ik1l"]
 
 [ext_resource type="Script" uid="uid://b7kymmcvpk570" path="res://Scripts/main_menu.gd" id="1_hnkcf"]
+[ext_resource type="Texture2D" uid="uid://bbdmebtknp4b3" path="res://Assets/Sprites/New Version/Silent_Night_MENU.png" id="2_sr3re"]
+[ext_resource type="Texture2D" uid="uid://bi1req5em8mqh" path="res://Assets/Sprites/New Version/UI.png" id="3_nbbsa"]
+[ext_resource type="Texture2D" uid="uid://b27augmjqj2h7" path="res://Assets/Sprites/New Version/Silent_Night_MENU_ending.png" id="3_rspes"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bnhvo"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rspes"]
+texture = ExtResource("2_sr3re")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tt5f1"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vepcr"]
+texture = ExtResource("3_rspes")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vepcr"]
+atlas = ExtResource("3_nbbsa")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6dsht"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vepcr")
+}],
+"loop": false,
+"name": &"play_sprite",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sr3re"]
+atlas = ExtResource("3_nbbsa")
+region = Rect2(0, 16, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nbbsa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sr3re")
+}],
+"loop": false,
+"name": &"quit_sprite",
+"speed": 5.0
+}]
 
 [node name="MainMenu_Control" type="Control"]
 layout_mode = 3
@@ -28,59 +57,51 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_bnhvo")
+theme_override_styles/panel = SubResource("StyleBoxTexture_rspes")
+
+[node name="MainMenu_Panel_Ending" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vepcr")
 
 [node name="Title_Node" type="Node" parent="."]
 
-[node name="Title_Panel" type="Panel" parent="Title_Node"]
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 30.0
-offset_top = 11.0
-offset_right = -30.0
-offset_bottom = 122.0
-grow_horizontal = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_tt5f1")
-
-[node name="Title_Label" type="Label" parent="Title_Node"]
-offset_left = 30.0
-offset_top = 11.0
-offset_right = 1122.0
-offset_bottom = 122.0
-theme_override_font_sizes/font_size = 56
-text = "Game Title"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+z_index = 1
 layout_mode = 0
-offset_left = 80.0
-offset_top = 253.0
-offset_right = 1058.0
-offset_bottom = 605.0
+offset_left = 58.0
+offset_top = 308.0
+offset_right = 407.0
+offset_bottom = 524.0
 theme_override_constants/separation = 14
 
-[node name="Start_Button" type="Button" parent="VBoxContainer"]
+[node name="Play_Button" type="Button" parent="VBoxContainer"]
+z_index = 1
 layout_mode = 2
 size_flags_vertical = 3
-text = "Start"
 
-[node name="Controls_Button" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "Controls"
-
-[node name="Settings_Button" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "Settings"
+[node name="Play_AnimatedSprite2D" type="AnimatedSprite2D" parent="VBoxContainer/Play_Button"]
+position = Vector2(174.5, 51.000015)
+scale = Vector2(10.84375, 7.125001)
+sprite_frames = SubResource("SpriteFrames_6dsht")
+animation = &"play_sprite"
 
 [node name="Exit_Button" type="Button" parent="VBoxContainer"]
+z_index = 1
 layout_mode = 2
 size_flags_vertical = 3
 text = "Exit"
 
-[connection signal="pressed" from="VBoxContainer/Start_Button" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Controls_Button" to="." method="_on_controls_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Settings_Button" to="." method="_on_settings_button_pressed"]
+[node name="Exit_AnimatedSprite2D2" type="AnimatedSprite2D" parent="VBoxContainer/Exit_Button"]
+position = Vector2(174.49998, 50.50001)
+scale = Vector2(10.843749, 7.1875014)
+sprite_frames = SubResource("SpriteFrames_nbbsa")
+animation = &"quit_sprite"
+
+[connection signal="pressed" from="VBoxContainer/Play_Button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit_Button" to="." method="_on_exit_button_pressed"]
