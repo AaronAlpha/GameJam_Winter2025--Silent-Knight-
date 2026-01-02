@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="GameJam Winter 2025 - Beginner Game Jam"
+run/main_scene="uid://brtncqnd0ik1l"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 

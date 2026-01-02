@@ -46,13 +46,10 @@ func movement(delta):
 
 
 
-func idleORfallState():
+func idleState():
 	if ( player.velocity == Vector2.ZERO or Input.is_action_just_pressed("interact_with_obj") ) and player.is_on_floor(): 
-		print("1")
+
 		Transitioned.emit(self, "SilentKnightIdle")
-	else:
-		print("5")
-		Transitioned.emit(self, "SilentKnightFall")
 
 
 # for the death/slash/stab acnimations
@@ -67,12 +64,6 @@ func attackAnimations(animation_name):
 		$"../../AnimatedSprite2D".visible = false
 		$"../../R_AnimatedSprite2D".visible = true
 		$"../../R_AnimatedSprite2D".play(animation_name)
-	
-	# disabling the collision shapes
-	$"../../CollisionShape2D".visible = false
-	$"../../CollisionShape2D".disabled = true
-	$"../../Crouch_CollisionShape2D".visible = false
-	$"../../Crouch_CollisionShape2D".disabled = true
 
 
 func check_death():
