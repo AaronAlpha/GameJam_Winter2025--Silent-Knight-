@@ -76,7 +76,7 @@ func attackAnimations(animation_name):
 
 
 func check_death():
-	if GameManager_Singleton.playerHealth == 0:
+	if GameManagerSingleton.playerHealth == 0:
 		Transitioned.emit(self, "SilentKnightDeath")
 
 
