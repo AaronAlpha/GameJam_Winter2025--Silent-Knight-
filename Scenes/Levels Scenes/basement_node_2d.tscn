@@ -133,4 +133,3 @@ position = Vector2(454, -16)
 position = Vector2(119, -28)
 
 [node name="Camera2D" type="Camera2D" parent="SilentKnight_CharacterBody2D"]
-zoom = Vector2(4, 4)

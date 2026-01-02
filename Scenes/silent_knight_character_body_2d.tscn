@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://b4mt5ivycteyy"]
+[gd_scene load_steps=49 format=3 uid="uid://b4mt5ivycteyy"]
 
 [ext_resource type="Script" uid="uid://dkryjeytrtr41" path="res://Scripts/silent_knight_character_body_2d.gd" id="1_1l7ou"]
 [ext_resource type="Texture2D" uid="uid://dp5o5e12w0uxa" path="res://Assets/Sprites/New Version/player-Sheet.png" id="2_h04xk"]
@@ -11,10 +11,6 @@
 [ext_resource type="Script" uid="uid://ditivl7qn6rmg" path="res://Scripts/States/SilentKnightStates/SilentKnightStab.gd" id="10_4b54u"]
 [ext_resource type="Script" uid="uid://ctjnxttilp5vj" path="res://Scripts/States/SilentKnightStates/SilentKnightDamage.gd" id="11_uwcpc"]
 [ext_resource type="Script" uid="uid://c27276hnycm22" path="res://Scripts/States/SilentKnightStates/SilentKnightDeath.gd" id="12_jabk5"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sd0cb"]
-atlas = ExtResource("2_h04xk")
-region = Rect2(96, 96, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4b54u"]
 atlas = ExtResource("2_h04xk")
@@ -74,14 +70,6 @@ region = Rect2(96, 160, 16, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sd0cb"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sd0cb")
-}],
-"loop": false,
-"name": &"crouch_animation",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4b54u")
@@ -374,7 +362,7 @@ script = ExtResource("1_1l7ou")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_sd0cb")
-animation = &"crouch_animation"
+animation = &"damage_animation"
 autoplay = "idle_animation"
 
 [node name="L_Attack_AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]

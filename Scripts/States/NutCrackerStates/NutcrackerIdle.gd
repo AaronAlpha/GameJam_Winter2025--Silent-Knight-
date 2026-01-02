@@ -66,9 +66,9 @@ func PhysicsUpdate(delta : float):
 	
 	# getting direction between player and enemy
 	var direction = player.global_position - enemy.global_position
-	
+
 	# if distance (direction) is within some threshold, we transition from Idle to Follow
 	if direction.length() < 100:
-		Transitioned.emit(self, "FinalBossFollow")
+		Transitioned.emit(self, "NutcrackerFollow")
 	
 	

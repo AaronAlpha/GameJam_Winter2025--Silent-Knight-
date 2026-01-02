@@ -9,11 +9,9 @@ func Enter():
 	$"../../CollisionShape2D".disabled = false
 
 	
-	$"../../Crouch_CollisionShape2D".visible = false
-	$"../../Crouch_CollisionShape2D".disabled = true
 
 	#check_death()
-	print("jump")
+
 	
 	#if jump == false and player.is_on_floor():
 	$"../../AnimatedSprite2D".play("jump_animation")
@@ -28,22 +26,22 @@ func Update(delta : float):
 func PhysicsUpdate(delta : float):
 	if player:
 		
-		player.velocity.y = jumpSpeed # adding the jump velocity to the player
-		print("jump")
+		#player.velocity.y = jumpSpeed # adding the jump velocity to the player
+
 		if direction > 0 or Input.is_action_pressed("move_right"):
 			
 			# if it does exist: set velocity...
-			player.velocity.x = direction * move_speed
+			#player.velocity.x = direction * move_speed
 			# should only be in x-axis
 			Transitioned.emit(self, "SilentKnightMove")
 		
 		elif direction < 0 or Input.is_action_pressed("move_left"):
 			# if it does exist: set velocity...
-			player.velocity.x = direction * move_speed
+			#player.velocity.x = direction * move_speed
 			# should only be in x-axis
 			Transitioned.emit(self, "SilentKnightMove")
 		else:
-			player.velocity.x = move_toward(player.velocity.x, 0, move_speed)
+			#player.velocity.x = move_toward(player.velocity.x, 0, move_speed)
 			Transitioned.emit(self, "SilentKnightIdle")
 		
 		#jump = true
@@ -69,15 +67,15 @@ func PhysicsUpdate(delta : float):
 	
 	# move states
 	if ((direction > 0 or Input.is_action_pressed("move_right")) or (direction < 0 or Input.is_action_pressed("move_left"))) and player.is_on_floor():
-		print("2")
+
 
 		Transitioned.emit(self, "SilentKnightMove")
 	elif Input.is_action_just_pressed("jump") and player.is_on_floor():
-		jump = false
+		#jump = false
 		Transitioned.emit(self, "SilentKnightJump")
-	
+	#
 	elif !player.is_on_floor():
-		jump = false
+		#jump = false
 		Transitioned.emit(self, "SilentKnightFall")
 		
 	else:

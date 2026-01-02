@@ -1,4 +1,4 @@
-extends FinalBoss_States
+extends State
 
 class_name FinalBossIdle
 
@@ -19,13 +19,13 @@ func random_wander():
 	if move_dir[0] > 0: # chceking the sign of the x values
 		# if dir is +ve -> i.e. facing right
 		$"../../Move_AnimatedSprite2D".flip_h = true
-		$"../../L_CollisionShape2D".visible = false
-		$"../../L_CollisionShape2D".disabled = true
-		$"../../R_CollisionShape2D".visible = true
-		$"../../R_CollisionShape2D".disabled = false
+		$"../../L_CollisionShape2D".visible = true
+		$"../../L_CollisionShape2D".disabled = false
+		$"../../R_CollisionShape2D".visible = false
+		$"../../R_CollisionShape2D".disabled = true
 	else:
 		# if dir is -ve -> i.e. facing left
-		$"../../Move_AnimatedSprite2D".flip_h = false
+		$"../../Move_AnimatedSprite2D".flip_h = true
 		$"../../L_CollisionShape2D".visible = true
 		$"../../L_CollisionShape2D".disabled = false
 		$"../../R_CollisionShape2D".visible = false
@@ -58,6 +58,7 @@ func Update(delta : float):
 func PhysicsUpdate(delta : float):
 	# check if enemy node exists:
 	if enemy:
+		print("work")
 		# if it does exist: set velocity...
 		enemy.velocity = move_dir * idle_move_speed
 	
@@ -69,5 +70,5 @@ func PhysicsUpdate(delta : float):
 	
 	# if distance (direction) is within some threshold, we transition from Idle to Follow
 	if direction.length() < 100:
-		Transitioned.emit(self, "NutcrackerFollow")
+		Transitioned.emit(self, "FinalBossFollow")
 	

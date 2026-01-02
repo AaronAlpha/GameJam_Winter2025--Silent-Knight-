@@ -1,4 +1,4 @@
-extends FinalBoss_States
+extends State
 
 class_name FinalBossFollow
 

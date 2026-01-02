@@ -8,8 +8,6 @@ func Enter():
 	$"../../CollisionShape2D".disabled = false
 
 	
-	$"../../Crouch_CollisionShape2D".visible = false
-	$"../../Crouch_CollisionShape2D".disabled = true
 	
 	# depending on dir
 	# we switch on the left or right death animation

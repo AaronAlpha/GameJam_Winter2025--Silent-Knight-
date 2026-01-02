@@ -6,9 +6,6 @@ func Enter():
 	$"../../CollisionShape2D".visible = true
 	$"../../CollisionShape2D".disabled = false
 
-	
-	$"../../Crouch_CollisionShape2D".visible = false
-	$"../../Crouch_CollisionShape2D".disabled = true
 	check_death()
 	
 	slash = true
@@ -34,7 +31,7 @@ func PhysicsUpdate(delta : float):
 	
 	# move states
 	if ((direction > 0 or Input.is_action_pressed("move_right")) or (direction < 0 or Input.is_action_pressed("move_left"))) and player.is_on_floor():
-		print("2")
+
 
 		Transitioned.emit(self, "SilentKnightMove")
 	

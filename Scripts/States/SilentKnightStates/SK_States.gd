@@ -4,7 +4,7 @@ class_name SilentKnight_States
 
 @export var player : CharacterBody2D
 @export var idle_move_speed := 20 # for idle_state
-@export var move_speed := 100 # for move_state
+@export var move_speed := 200 # for move_state
 @export var jumpSpeed : int = -300 # for jump_state
 var enemy : CharacterBody2D
 

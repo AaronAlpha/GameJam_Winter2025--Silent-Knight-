@@ -1,6 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://ktb08c0333jo"]
+[gd_scene load_steps=26 format=3 uid="uid://ktb08c0333jo"]
 
 [ext_resource type="Texture2D" uid="uid://6ss7dwm64eeh" path="res://Assets/Sprites/New Version/Froggo-Sheet.png" id="1_adc41"]
+[ext_resource type="Script" uid="uid://cmgt4wdnih4r2" path="res://Scenes/final_boss_character_body_2d.gd" id="1_t1wu7"]
 [ext_resource type="PackedScene" uid="uid://cgkhpp02r34fi" path="res://Scenes/state_machine_node.tscn" id="2_u6eis"]
 [ext_resource type="Script" uid="uid://0m72ffswkoot" path="res://Scripts/States/FinalBossStates/FinallBossIdle.gd" id="3_rp6x1"]
 [ext_resource type="Script" uid="uid://don2qvcjweitp" path="res://Scripts/States/FinalBossStates/FinallBossFollow.gd" id="4_t1wu7"]
@@ -139,6 +140,7 @@ size = Vector2(33, 55)
 size = Vector2(33, 55)
 
 [node name="FinalBoss_CharacterBody2D" type="CharacterBody2D" groups=["FinalBoss"]]
+script = ExtResource("1_t1wu7")
 
 [node name="Move_AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -48)
@@ -147,6 +149,7 @@ animation = &"move_animation"
 autoplay = "move_animation"
 
 [node name="Attack_AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(0, -48)
 sprite_frames = SubResource("SpriteFrames_4wqll")
 animation = &"attack_animation"
@@ -157,6 +160,7 @@ shape = SubResource("RectangleShape2D_adc41")
 debug_color = Color(0.95714015, 0, 0.53678, 0.41960785)
 
 [node name="L_CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-19.5, -28.5)
 shape = SubResource("RectangleShape2D_u6eis")
 debug_color = Color(0.57443357, 0.55467176, 0, 0.41960785)

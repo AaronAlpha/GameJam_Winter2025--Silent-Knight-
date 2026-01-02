@@ -7,12 +7,9 @@ class_name SilentKnightIdle
 func Enter():
 	$"../../CollisionShape2D".visible = true
 	$"../../CollisionShape2D".disabled = false
-
 	
-	$"../../Crouch_CollisionShape2D".visible = false
-	$"../../Crouch_CollisionShape2D".disabled = true
 	#check_death()
-	print("idle")
+	#print("idle")dddd
 	$"../../AnimatedSprite2D".play("idle_animation")
 
 

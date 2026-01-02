@@ -10,10 +10,8 @@ func Enter():
 	$"../../CollisionShape2D".disabled = false
 
 	
-	$"../../Crouch_CollisionShape2D".visible = false
-	$"../../Crouch_CollisionShape2D".disabled = true
 	#check_death()
-	print("move")
+
 	$"../../AnimatedSprite2D".play("move_animation")
 	
 	
@@ -37,6 +35,11 @@ func PhysicsUpdate(delta : float):
 	
 	# check if player node exists:
 	if player:
+		
+		if Input.is_action_just_pressed("jump") and player.is_on_floor():
+			$"../../AnimatedSprite2D".play("jump_animation")
+			player.velocity.y = jumpSpeed
+		
 		if direction > 0 or Input.is_action_pressed("move_right"):
 			
 			# if it does exist: set velocity...
@@ -66,13 +69,13 @@ func PhysicsUpdate(delta : float):
 	
 	# move states
 	if ((direction > 0 or Input.is_action_pressed("move_right")) or (direction < 0 or Input.is_action_pressed("move_left"))) and player.is_on_floor():
-		print("2")
+		#print("2")
 
 		Transitioned.emit(self, "SilentKnightMove")
 	
-	elif Input.is_action_just_pressed("jump") and player.is_on_floor():
-
-		Transitioned.emit(self, "SilentKnightJump")
+	#elif Input.is_action_just_pressed("jump") and player.is_on_floor():
+#
+		#Transitioned.emit(self, "SilentKnightJump")
 	
 	elif !player.is_on_floor():
 
