@@ -75,7 +75,9 @@ tile_set = SubResource("TileSet_5x71f")
 position = Vector2(-150, -20)
 
 [node name="Camera2D" type="Camera2D" parent="SilentKnight_CharacterBody2D"]
+position = Vector2(1, -12)
 zoom = Vector2(3, 3)
+position_smoothing_enabled = true
 
 [node name="ChangeScene_Area2D" parent="." instance=ExtResource("4_bwgc3")]
 position = Vector2(-15, -65)

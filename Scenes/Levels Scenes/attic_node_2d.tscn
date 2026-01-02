@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://bbijisom2k7c1"]
-
-[node name="Attic_Node2D" type="Node2D"]
-
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
