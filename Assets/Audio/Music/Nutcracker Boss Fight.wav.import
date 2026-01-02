@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dqe0ba3axpf5y"
+path="res://.godot/imported/Nutcracker Boss Fight.wav-a21f2271766e16c42627a87c35bca79f.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/Music/Nutcracker Boss Fight.wav"
+dest_files=["res://.godot/imported/Nutcracker Boss Fight.wav-a21f2271766e16c42627a87c35bca79f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
