@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpe3mymow2244"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxp0m"]
+size = Vector2(118, 96)
+
+[node name="ChangeScene_Area2D" type="Area2D"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+shape = SubResource("RectangleShape2D_xxp0m")

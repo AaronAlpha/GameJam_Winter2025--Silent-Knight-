@@ -4,12 +4,9 @@ class_name SilentKnightIdle
 
 
 # and then when we Enter() this state (EnemyIdle state), we call the randomizer func
-func Enter():
-	$"../../CollisionShape2D".visible = true
-	$"../../CollisionShape2D".disabled = false
-	
+func Enter():	
 	#check_death()
-	#print("idle")dddd
+
 	$"../../AnimatedSprite2D".play("idle_animation")
 
 
@@ -25,24 +22,34 @@ func PhysicsUpdate(delta : float):
 		# if it does exist: check keyPress and change state
 		if direction > 0 or Input.is_action_pressed("move_right"): # moving right
 			$"../../AnimatedSprite2D".flip_h = false
-			Transitioned.emit(self, "SilentKnightMove")
+			#Transitioned.emit(self, "SilentKnightMove")
 			
 		elif direction < 0 or Input.is_action_pressed("move_left"): # moving left
 			$"../../AnimatedSprite2D".flip_h = true
-			Transitioned.emit(self, "SilentKnightMove")
-		
-		elif Input.is_action_just_pressed("jump") and player.is_on_floor():
-			Transitioned.emit(self, "SilentKnightJump")
+			#Transitioned.emit(self, "SilentKnightMove")
+		#
+		#elif Input.is_action_just_pressed("jump") and player.is_on_floor():
+			#Transitioned.emit(self, "SilentKnightJump")
+		#
+		#else:
+			#Transitioned.emit(self, "SilentKnightIdle")
+				#
 
-		elif !player.is_on_floor():
-			Transitioned.emit(self, "SilentKnightFall")
-		
-		else:
-			Transitioned.emit(self, "SilentKnightIdle")
-				
-
+	# attack states
 	if Input.is_action_just_pressed("Slash"):
 		Transitioned.emit(self, "SilentKnightSlash")
+		
 	elif Input.is_action_just_pressed("Stab"):
 		Transitioned.emit(self, "SilentKnightStab")
+	
+	
+	# move states
+	if (direction > 0 or Input.is_action_pressed("move_right")) or (direction < 0 or Input.is_action_pressed("move_left")): # moving right
+		Transitioned.emit(self, "SilentKnightMove")
+	else:
+		Transitioned.emit(self, "SilentKnightIdle")
+	
+	if Input.is_action_just_pressed("jump") and player.is_on_floor():
+		Transitioned.emit(self, "SilentKnightJump")
+	
 	

@@ -25,7 +25,7 @@ func random_wander():
 		$"../../R_CollisionShape2D".disabled = true
 	else:
 		# if dir is -ve -> i.e. facing left
-		$"../../Move_AnimatedSprite2D".flip_h = true
+		$"../../Move_AnimatedSprite2D".flip_h = false
 		$"../../L_CollisionShape2D".visible = true
 		$"../../L_CollisionShape2D".disabled = false
 		$"../../R_CollisionShape2D".visible = false

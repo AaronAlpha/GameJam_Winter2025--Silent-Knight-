@@ -232,6 +232,7 @@ shape = SubResource("RectangleShape2D_ladjm")
 debug_color = Color(0, 0.6265115, 0.5134231, 0.41960785)
 
 [node name="RightFacing_CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 z_index = 1
 position = Vector2(-13, -22)
 shape = SubResource("RectangleShape2D_ladjm")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://b4mt5ivycteyy"]
+[gd_scene load_steps=52 format=3 uid="uid://b4mt5ivycteyy"]
 
 [ext_resource type="Script" uid="uid://dkryjeytrtr41" path="res://Scripts/silent_knight_character_body_2d.gd" id="1_1l7ou"]
 [ext_resource type="Texture2D" uid="uid://dp5o5e12w0uxa" path="res://Assets/Sprites/New Version/player-Sheet.png" id="2_h04xk"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://bptwmupi8krts" path="res://Scripts/States/SilentKnightStates/SilentKnightIdle.gd" id="4_y0sv7"]
 [ext_resource type="Script" uid="uid://ciilhcbyj34eo" path="res://Scripts/States/SilentKnightStates/SilentKnightMove.gd" id="5_vn312"]
 [ext_resource type="Script" uid="uid://d4cll4kq7idfu" path="res://Scripts/States/SilentKnightStates/SilentKnightJump.gd" id="6_sd0cb"]
-[ext_resource type="Script" uid="uid://ej5h1bevix20" path="res://Scripts/States/SilentKnightStates/SilentKnightFall.gd" id="8_lm8ks"]
 [ext_resource type="Script" uid="uid://b245u55ca42ky" path="res://Scripts/States/SilentKnightStates/SilentKnightSlash.gd" id="9_hopt6"]
 [ext_resource type="Script" uid="uid://ditivl7qn6rmg" path="res://Scripts/States/SilentKnightStates/SilentKnightStab.gd" id="10_4b54u"]
 [ext_resource type="Script" uid="uid://ctjnxttilp5vj" path="res://Scripts/States/SilentKnightStates/SilentKnightDamage.gd" id="11_uwcpc"]
@@ -28,10 +27,6 @@ region = Rect2(64, 128, 16, 32)
 atlas = ExtResource("2_h04xk")
 region = Rect2(96, 128, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1lfy5"]
-atlas = ExtResource("2_h04xk")
-region = Rect2(128, 96, 16, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_dfhla"]
 atlas = ExtResource("2_h04xk")
 region = Rect2(0, 160, 16, 32)
@@ -48,9 +43,29 @@ region = Rect2(64, 160, 16, 32)
 atlas = ExtResource("2_h04xk")
 region = Rect2(96, 160, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4g2f6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_403sl"]
+atlas = ExtResource("2_h04xk")
+region = Rect2(0, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sd0cb"]
+atlas = ExtResource("2_h04xk")
+region = Rect2(32, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lfy5"]
 atlas = ExtResource("2_h04xk")
 region = Rect2(64, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4g2f6"]
+atlas = ExtResource("2_h04xk")
+region = Rect2(96, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psp6o"]
+atlas = ExtResource("2_h04xk")
+region = Rect2(128, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddraj"]
+atlas = ExtResource("2_h04xk")
+region = Rect2(160, 96, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4fhg1"]
 atlas = ExtResource("2_h04xk")
@@ -89,14 +104,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1lfy5")
-}],
-"loop": false,
-"name": &"fall_animation",
-"speed": 3.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_dfhla")
 }, {
 "duration": 1.0,
@@ -114,11 +121,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_403sl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sd0cb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lfy5")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_4g2f6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psp6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddraj")
 }],
 "loop": false,
 "name": &"jump_animation",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -357,13 +379,16 @@ radius = 4.0
 height = 18.0
 
 [node name="SilentKnight_CharacterBody2D" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 2
 script = ExtResource("1_1l7ou")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_sd0cb")
-animation = &"damage_animation"
+animation = &"jump_animation"
 autoplay = "idle_animation"
+frame = 5
+frame_progress = 1.0
 
 [node name="L_Attack_AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -379,6 +404,7 @@ animation = &"stab_animation"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
 position = Vector2(0, -10)
 shape = SubResource("CapsuleShape2D_hygh2")
 debug_color = Color(0.96727043, 7.70092e-07, 0.47832793, 0.41960785)
@@ -400,11 +426,6 @@ metadata/_custom_type_script = "uid://ciilhcbyj34eo"
 script = ExtResource("6_sd0cb")
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://d4cll4kq7idfu"
-
-[node name="SilentKnightFall" type="Node" parent="StateMachine_Node" node_paths=PackedStringArray("player")]
-script = ExtResource("8_lm8ks")
-player = NodePath("../..")
-metadata/_custom_type_script = "uid://ej5h1bevix20"
 
 [node name="SilentKnightSlash" type="Node" parent="StateMachine_Node" node_paths=PackedStringArray("player")]
 script = ExtResource("9_hopt6")

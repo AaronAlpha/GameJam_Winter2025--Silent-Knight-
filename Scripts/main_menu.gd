@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 
 # start button
 func _on_start_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/testing_scene_node_2d.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Levels Scenes/starter_room_node_2d.tscn")
 
 # exit button
 func _on_exit_button_pressed() -> void:
