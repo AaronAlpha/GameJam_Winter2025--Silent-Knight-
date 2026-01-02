@@ -10,7 +10,7 @@ func Enter():
 	attackAnimations("death_animation")
 
 func Update(delta : float):
-	get_tree().change_scene_to_file("res://Scenes/game_over_control.tscn")
+	get_tree().change_scene_to_file("res://Scenes/UI Scenes/MainMenu_Control.tscn")
 
 func PhysicsUpdate(delta : float):
 	pass

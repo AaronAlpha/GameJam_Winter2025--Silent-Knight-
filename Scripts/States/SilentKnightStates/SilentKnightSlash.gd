@@ -17,4 +17,6 @@ func PhysicsUpdate(delta : float):
 	if player:
 		pass
 	
+	attackStates()
+	moveStates()
 	

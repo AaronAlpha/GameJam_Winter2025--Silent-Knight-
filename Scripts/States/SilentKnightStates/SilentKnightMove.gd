@@ -49,14 +49,15 @@ func PhysicsUpdate(delta : float):
 	# movement change states AND interact change state
 	# change state to idle if the player's Vector2 coord are (0,0) -> (Vector2.ZERO)
 	# OR change state to idle if the player has interacted with an obj
-	if player.velocity == Vector2.ZERO or Input.is_action_just_pressed("interact_with_obj"): 
-		Transitioned.emit(self, "SilentKnightIdle")
-	
-	elif Input.is_action_just_pressed("jump") and player.is_on_floor():
-		Transitioned.emit(self, "SilentKnightJump")
-	
-	elif Input.is_action_pressed("crouch") and player.is_on_floor():
-		Transitioned.emit(self, "SilentKnightCrouch")
-	
-	else:
-		Transitioned.emit(self, "SilentKnightFall")
+	#if player.velocity == Vector2.ZERO or Input.is_action_just_pressed("interact_with_obj"): 
+		#Transitioned.emit(self, "SilentKnightIdle")
+	#
+	#elif Input.is_action_just_pressed("jump") and player.is_on_floor():
+		#Transitioned.emit(self, "SilentKnightJump")
+	#
+	#elif Input.is_action_pressed("crouch") and player.is_on_floor():
+		#Transitioned.emit(self, "SilentKnightCrouch")
+	#
+	#else:
+		#Transitioned.emit(self, "SilentKnightFall")
+	moveStates()

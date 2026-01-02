@@ -40,8 +40,21 @@ func movement(delta):
 	else:
 		player.velocity.x = move_toward(player.velocity.x, 0, move_speed)
 
+func moveStates():
+	if player.velocity == Vector2.ZERO or Input.is_action_just_pressed("interact_with_obj"): 
+		Transitioned.emit(self, "SilentKnightIdle")
+	
+	elif Input.is_action_just_pressed("jump") and player.is_on_floor():
+		Transitioned.emit(self, "SilentKnightJump")
+	
+	elif Input.is_action_pressed("crouch") and player.is_on_floor():
+		Transitioned.emit(self, "SilentKnightCrouch")
+	
+	else:
+		Transitioned.emit(self, "SilentKnightFall")
 
-func attackStates():	
+
+func attackStates():
 	# attack change states
 	if Input.is_action_just_pressed("Slash"):
 		Transitioned.emit(self, "SilentKnightSlash")
@@ -49,6 +62,7 @@ func attackStates():
 		Transitioned.emit(self, "SilentKnightStab")
 
 
+# for the death/slash/stab acnimations
 func attackAnimations(animation_name):
 	# animation_name has to be a text (i.e. it has to be in quotes)
 	if direction > 0 or Input.is_action_pressed("move_right"): # moving right
