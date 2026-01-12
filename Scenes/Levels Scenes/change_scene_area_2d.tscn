@@ -5,9 +5,10 @@ size = Vector2(118, 96)
 
 [node name="ChangeScene_Area2D" type="Area2D"]
 modulate = Color(0, 1, 1, 1)
+self_modulate = Color(0.92789006, 0.36321557, 0.43237343, 1)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
 shape = SubResource("RectangleShape2D_xxp0m")
-debug_color = Color(0, 0.6, 0.69803923, 0)
+debug_color = Color(0.5600547, 0.5376773, 0.45245403, 1)
