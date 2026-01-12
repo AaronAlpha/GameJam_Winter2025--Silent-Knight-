@@ -120,16 +120,5 @@ stream = ExtResource("6_vepcr")
 volume_db = 8.978
 autoplay = true
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 606.0
-offset_top = 6.0
-offset_right = 1149.0
-offset_bottom = 107.0
-text = "sorry, my programming is not of the level of the art and music of my 
-teammates. 
-its very bad; i look to try and showcase their stuff more because of the
-lack of time"
-
 [connection signal="pressed" from="VBoxContainer/Play_Button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit_Button" to="." method="_on_exit_button_pressed"]
